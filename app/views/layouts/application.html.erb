@@ -7,6 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+		<% if current_user %> <!-- Do not need to define this with sorcery -->
+			<%= link_to "Logout", :logout, method: :get %>
+		<% else %>
+			<%= link_to "Register", new_user_path %> | 
+			<%= link_to "Login", :login %>
+			<% end %>
+	</nav>
+	<div>
+		<p id="notice"><%= flash[:notice] %></p>
+		<p id="alert"><%= flash[:alert] %></p>
+	</div>
 
 <%= yield %>
 

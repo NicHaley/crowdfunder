@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'project#index'
+  root 'projects#index'
 
   resources :users
   resources :projects, only: [:index, :new, :create]
   resources :sessions, only: [:destroy, :new, :create]
 
-  get 'login' => 'sessions#new', as: 'login'
+  get 'login' => 'sessions#new', as: 'login'    #Rename 'sessions#new' path login
   get 'logout' => 'sessions#destroy', as: 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
