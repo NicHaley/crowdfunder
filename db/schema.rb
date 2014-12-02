@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202164431) do
+ActiveRecord::Schema.define(version: 20141202170019) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.text     "post"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pledges", force: true do |t|
+    t.integer  "amount"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
