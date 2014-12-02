@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202212001) do
+ActiveRecord::Schema.define(version: 20141202212748) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20141202212001) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "user_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
