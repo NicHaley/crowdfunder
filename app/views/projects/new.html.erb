@@ -17,22 +17,23 @@
 		<%= f.label :photo %><br/>
 		<%= f.text_field :photo %>
 	</div>
+		<div class="field">
+		<%= f.label :start_date %><br/>
+		<%= f.date_select :start_date %>
+	</div>
+		<div class="field">
+		<%= f.label :end_date %><br/>
+		<%= f.date_select :end_date %>
+	</div>
 	<p>Rewards</p>
 	<%= f.fields_for :rewards do |reward_fields| %>
-		<div class="field">
-			<%= reward_fields.label :title %><br/>
-			<%= reward_fields.text_field :title %>
-		</div>
-		<div class="field">
-			<%= reward_fields.label :min_amount %><br/>
-			<%= reward_fields.text_field :min_amount %>
-		</div>
-		<div class="field">
-			<%= reward_fields.label :description %><br/>
-			<%= reward_fields.text_field :description %>
-		</div>
+		<%= render 'reward_fields', f: reward_fields %>
 	<% end %>
+
+	<%= link_to_add_association 'add reward', f, :rewards %>
+
  	<div class="action">
 		<%= f.submit "Submit"%>
 	</div>
 <% end %>
+

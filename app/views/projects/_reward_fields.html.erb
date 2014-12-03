@@ -1,0 +1,16 @@
+<div class="nested-fields">
+	<div class="field">
+		<%= f.label :title %><br/>
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :min_amount %><br/>
+		<%= f.number_field :min_amount %>
+	</div>
+	<div class="field">
+		<%= f.label :description %><br/>
+		<%= f.text_field :description %>
+	</div>
+
+<%= link_to_remove_association "remove reward", f %>
+</div>
