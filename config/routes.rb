@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :projects, only: [:index, :new, :create]
   resources :sessions, only: [:destroy, :new, :create]
+  resources :rewards, only: [:create, :destroy]
 
   get 'login' => 'sessions#new', as: 'login'    #Rename 'sessions#new' path login
   get 'logout' => 'sessions#destroy', as: 'logout'
