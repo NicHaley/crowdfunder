@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141202212748) do
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "amount"
+    t.integer  "amount"   #  goal
     t.string   "tagline"
     t.string   "photo"
     t.datetime "end_date"
