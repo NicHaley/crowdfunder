@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   resources :users
-  resources :projects, only: [:index, :new, :create]
   resources :sessions, only: [:destroy, :new, :create]
-  resources :rewards, only: [:create, :destroy]
+
+  resources :projects do
+    resources :rewards, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :show]
+  end
 
   get 'login' => 'sessions#new', as: 'login'    #Rename 'sessions#new' path login
   get 'logout' => 'sessions#destroy', as: 'logout'

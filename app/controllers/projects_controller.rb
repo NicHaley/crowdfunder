@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :require_login, except: :index
+	before_action :require_login, only: [:new, :edit]
 
 	def index
 		@projects = Project.all
@@ -18,6 +18,18 @@ class ProjectsController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def show
+	end
+
+	def edit
+	end
+
+	def update
+	end
+
+	def destroy
 	end
 
 	private
