@@ -2,7 +2,19 @@ class ProjectsController < ApplicationController
 	before_action :require_login, only: [:new, :edit]
 
 	def index
-		@projects = Project.all
+		@projects = if params[:search]
+			Project.where("name LIKE ?", "%#{params[:search]}%")
+		else
+
+			Project.all
+		end
+		
+		@projects = @projects.order('projects.created_at DESC').page(params[:page])
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new
