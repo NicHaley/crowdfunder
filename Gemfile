@@ -44,4 +44,8 @@ gem 'cocoon'
 
 gem 'kaminari'
 
+
 gem 'pry-rails'
+
+gem 'foundation-rails'
+
