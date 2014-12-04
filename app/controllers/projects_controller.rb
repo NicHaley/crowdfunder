@@ -36,7 +36,8 @@ class ProjectsController < ApplicationController
 
 		@project = Project.find(params[:id])
 		@comment = @project.comments.build
-		@reward = @project.rewards.build
+	
+		@pledge = @project.pledges.build
 
 	end
 

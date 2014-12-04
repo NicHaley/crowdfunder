@@ -26,7 +26,7 @@
 	<%= @project.end_date.year %>-<%= @project.end_date.month %>-<%= @project.end_date.day %>
 </p>
 
-
+<% if current_user %>
 <h2>New Comment</h2>
 
 <%= form_for([@project, @comment]) do |f| %>
@@ -36,6 +36,13 @@
 <div class="actions">
 	<%= f.submit %>
 </div>
+
+<%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_project_path(@project) %>
+
+<% end %>
+
+
 <% end %>
 
 <h2>Comments</h2>
@@ -71,5 +78,27 @@
 	<%= reward.title %><br/>
 	<%= reward.description %><br/>
 	<%= reward.min_amount %><br/>
+
+	<%= form_for ([@project, @pledge]) do |f| %>
+		<%= f.hidden_field :reward_id, value: reward.id %>
+		<%= f.hidden_field :amount, value: reward.min_amount %>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+	<% end %>
 </p>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

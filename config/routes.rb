@@ -2,12 +2,11 @@ Rails.application.routes.draw do
 
   root 'projects#index'
 
-  resources :users do
-    resources :pledges, only: [:create, :new]
-  end
+  resources :users
   resources :sessions, only: [:destroy, :new, :create]
 
   resources :projects do
+    resources :pledges, only: [:create, :new]
     resources :rewards, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :show]
   end

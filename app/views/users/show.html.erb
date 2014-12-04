@@ -1,0 +1,16 @@
+<h1>Profile</h1>
+
+
+<% @user.pledges.each do |pledge| %>
+	 
+	 <%= pledge.amount %>
+
+<% end %>
+
+<% @user.rewards.each do |reward| %>
+	 
+	 <%= reward.title %>
+	 <%= reward.description %>
+	 <%= reward.min_amount %>
+
+<% end %>

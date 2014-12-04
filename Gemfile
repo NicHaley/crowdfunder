@@ -43,3 +43,5 @@ gem 'sorcery'
 gem 'cocoon'
 
 gem 'kaminari'
+
+gem 'pry-rails'

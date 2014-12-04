@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+	def show
+		@user = User.find(params[:id])
+		@pledge = @user.pledges.build
+		@reward = @user.rewards.build
+	end
+
 	def new
 		@user = User.new
 	end
