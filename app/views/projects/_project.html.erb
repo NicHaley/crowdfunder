@@ -1,0 +1,11 @@
+<div class="project-block">
+	<div class="project-thumbnail">
+		<%= link_to image_tag(project.photo, class: "photo-thumbnail"), "projects/#{project.id}" %>
+	</div>
+	<div class="project-content">
+		<h6 class="project-title"><%= project.name %></h6>
+		<p class="project-by">By <%= project.name %></p>
+		<p class="project-blurb"><%= project.tagline %></p>
+	</div>
+	<div class="project-footer"></div>
+</div>

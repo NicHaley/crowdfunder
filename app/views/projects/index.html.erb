@@ -1,13 +1,18 @@
-<h1>What's New</h1>
+<%= stylesheet_link_tag "application.css" %>
 
-<div class="project-block">
-	<div class="project-thumbnail">
-		<% link_to image_tag(project.photo, class: "photo-thumbnail"), "projects/#{projects.id}" %>
-	</div>
-	<div class="project-content">
-		<h6><%= project.name %></h6>
-		<p class="project-by">By <%=user.user_name %></p>
-		<p class="project-blurb"><%= project.tagline %></p>
-	</div>
-	<div class="project-footer"></div>
+<!--Search Form-->
+<div class="form-group">
+	<%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for Projects', id: 'input_search' %>
+	<%= button_tag "Search", class: 'btn btn-warning btn-lg' %>
 </div>
+
+
+<!-- Project List -->
+<div id='project-container'>
+	<h1>What's New</h1>
+	<%= render @projects %>
+</div>
+
+<!-- outputs several pagination links such as « First ‹ Prev ... 2 3 4 5 6 7 8 9 10 ... Next › Last » -->
+<br/>
+<div id="projects-pagination"><%= paginate @projects %></div>

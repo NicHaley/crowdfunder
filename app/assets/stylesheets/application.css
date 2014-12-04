@@ -1,4 +1,9 @@
-project-block {
+#project-container {
+	width: 1200px;
+	margin: auto;
+}
+
+.project-block {
 	background-color: white;
 	border: solid 1px #d9d9de;
 	border-radius: 6px;
@@ -7,4 +12,31 @@ project-block {
 	line-height: 1.5;
 	margin-bottom: 10px;
 	position: relative;	
+	width: 400px;
 }
+
+.project-thumbnail img {
+	width: 400px;
+	height: 300px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.project-title {
+	font-size: 12pt;
+	font-weight: bold;
+	margin: 0;
+	padding: 10px;
+	color: black;
+}
+
+.project-blurb {
+	padding: 10px;
+	margin: 0;
+}
+
+.project-by {
+	padding: 10px;
+	margin: 0;
+}
+
