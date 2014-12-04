@@ -30,7 +30,9 @@
 		<%= render 'reward_fields', f: reward_fields %>
 	<% end %>
 
-	<%= link_to_add_association 'add reward', f, :rewards %>
+	<div>
+		<%= link_to_add_association 'add reward', f, :rewards %>
+	</div>
 
  	<div class="action">
 		<%= f.submit "Submit"%>

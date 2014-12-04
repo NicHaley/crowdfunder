@@ -18,12 +18,12 @@
 
 <p>
 	<strong>Start Date: </strong>
-	<%= @project.start_date %>
+	<%= @project.start_date.year %>-<%= @project.start_date.month %>-<%= @project.start_date.day %>
 </p>
 
 <p>
 	<strong>End Date: </strong>
-	<%= @project.end_date %>
+	<%= @project.end_date.year %>-<%= @project.end_date.month %>-<%= @project.end_date.day %>
 </p>
 
 
@@ -67,9 +67,9 @@
 <h2>Rewards</h2>
 
 <% @project.rewards.each do |reward| %>
-	<p>
-		<%= reward.title %><br/>
-		<%= reward.description %><br/>
-		<%= reward.min_amount %><br/>
-	</p>
+<p>
+	<%= reward.title %><br/>
+	<%= reward.description %><br/>
+	<%= reward.min_amount %><br/>
+</p>
 <% end %>
