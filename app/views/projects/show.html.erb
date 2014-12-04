@@ -40,7 +40,7 @@
 
 <h2>Comments</h2>
 
-<%= @project.comments.each do |comment| %>
+<% @project.comments.each do |comment| %>
 <p>
 	<%= comment.post %>
 	<br>
@@ -50,3 +50,18 @@
 	<% end %>
 </p>
 <% end %>
+
+<% if @comment.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+	<ul>
+		<% @comment.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+</div>
+
+<h2>Rewards</h2>
