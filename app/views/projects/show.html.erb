@@ -65,3 +65,11 @@
 </div>
 
 <h2>Rewards</h2>
+
+<% @project.rewards.each do |reward| %>
+	<p>
+		<%= reward.title %><br/>
+		<%= reward.description %><br/>
+		<%= reward.min_amount %><br/>
+	</p>
+<% end %>
