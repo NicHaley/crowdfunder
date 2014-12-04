@@ -42,3 +42,4 @@ gem 'sorcery'
 
 gem 'cocoon'
 
+gem 'kaminari'
