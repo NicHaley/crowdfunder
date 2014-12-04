@@ -1,5 +1,14 @@
 <%= stylesheet_link_tag "application.css" %>
 
+<!-- Main Display -->
+<div id="main-display-container">
+	<div id="main-display-header">
+		<div id="main-display-text"><h2 class="text-main">Bring your creative project to life</h2></div>
+		<div id="main-display-button"></div>
+	</div>
+</div>
+
+
 <!--Search Form-->
 <div class="form-group">
 	<%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for Projects', id: 'input_search' %>
