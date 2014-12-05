@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
 		@project = Project.find(params[:id])
 		@comment = @project.comments.build
-	
+
 		@pledge = @project.pledges.build
 
 	end
@@ -57,6 +57,12 @@ class ProjectsController < ApplicationController
 
 
 	def destroy
+		@project = Project.find(params[:id])
+		@project.destroy
+		respond_to do |format|
+			format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+			format.json { head :no_content }
+		end
 	end
 
 	private
@@ -64,6 +70,6 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 	end
 	def project_params
-		params.require(:project).permit(:name, :description, :amount, :tagline, :photo, :end_date, :start_date, rewards_attributes: [:min_amount, :description, :_destroy])
+		params.require(:project).permit(:name, :description, :amount, :tagline, :photo, :end_date, :start_date, rewards_attributes: [:reward_name, :min_amount, :description, :_destroy])
 	end
 end

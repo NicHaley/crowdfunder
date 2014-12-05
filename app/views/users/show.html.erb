@@ -1,16 +1,11 @@
-<h1>Profile</h1>
+<h1><%= @user.user_name.capitalize %> Profile</h1>
 
-
-<% @user.pledges.each do |pledge| %>
-	 
-	 <%= pledge.amount %>
-
-<% end %>
+<h3>User Rewards:</h3>
 
 <% @user.rewards.each do |reward| %>
-	 
-	 <%= reward.title %>
-	 <%= reward.description %>
-	 <%= reward.min_amount %>
-
+	<p>
+		<strong>Title:</strong><%= reward.reward_name %><br/>
+		<strong>Description:</strong><%= reward.description %><br/>
+		<strong>Value:</strong><%= reward.min_amount %>
+	</p>
 <% end %>
