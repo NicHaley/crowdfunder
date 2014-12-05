@@ -49,3 +49,4 @@ gem 'pry-rails'
 
 gem 'foundation-rails'
 
+gem 'cancancan', '~> 1.9'

@@ -11,7 +11,7 @@ class RewardsController < ApplicationController
 
 	private
 	def reward_params
-		params.require(:reward).permit(:min_amount, :title, :description, :project_id)
+		params.require(:reward).permit(:min_amount, :reward_name, :description, :project_id)
 	end
 
 	def load_project

@@ -34,6 +34,10 @@ body {
 	margin: auto;
 }
 
+.profile-button {
+	border-left: 1px solid #005e9e;
+}
+
 .project-block {
 	background-color: white;
 	border: solid 1px #d9d9de;

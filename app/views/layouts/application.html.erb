@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Crowdfunder</title>
+  <title>Crowdfunder</title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-  </head>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+</head>
 
-  <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
+<body>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
         <%= link_to image_tag("logo.png", class: "photo-thumbnail"), root_url %>
-        </li>
-      </ul>
-      <!-- Right Nav Section -->
-      <section class="top-bar-section">
+      </li>
+    </ul>
+    <!-- Right Nav Section -->
+    <section class="top-bar-section">
       <ul class="right">
         <li class="active"><%= link_to "Add Project", new_project_path, class: "add-product" %></li>
-        <li>
-        <% if current_user %> <!-- Do not need to define this with sorcery -->
-        <%= link_to "Logout", :logout, method: :get %>
-      <% else %>
-        <%= link_to "Register", new_user_path %> | 
-        <%= link_to "Login", :login %>
+        <% if current_user %>
+        <li class="active"><%= link_to "Profile", current_user, class: "profile-button" %></li>
         <% end %>
+        <li>
+          <% if current_user %> <!-- Do not need to define this with sorcery -->
+          <%= link_to "Logout", :logout, method: :get %>
+          <% else %>
+          <%= link_to "Register", new_user_path %> | 
+          <%= link_to "Login", :login %>
+          <% end %>
         </li>
       </ul>
     </nav>
@@ -44,7 +47,7 @@
     <%= javascript_include_tag "application" %>
 
   </body>
-</html>
+  </html>
 
 
 

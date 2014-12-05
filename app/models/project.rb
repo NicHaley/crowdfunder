@@ -4,10 +4,11 @@ class Project < ActiveRecord::Base
 	has_many :pledges, through: :rewards
 	has_many :comments
 
-	validate :start_date, :end_date, :name, :amount, presence: true
+	validates :start_date, :end_date, :name, :amount, presence: true
 	validate :project_date?, :end_greater_than_start?
+	validates_associated :rewards
 
-	accepts_nested_attributes_for :rewards, :reject_if => :all_blank, :allow_destroy => true
+	accepts_nested_attributes_for :rewards, :allow_destroy => true
 
 	def project_date?
 		if end_date < Date.today && start_date < Date.today
