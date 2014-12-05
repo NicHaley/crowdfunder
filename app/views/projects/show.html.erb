@@ -13,62 +13,69 @@
 </p>
 
 <p>
-	<%= @project.amount %>
-</p>
-
-<p>
-	<strong>Start Date: </strong>
-	<%= @project.start_date.year %>-<%= @project.start_date.month %>-<%= @project.start_date.day %>
-</p>
-
-<p>
-	<strong>End Date: </strong>
-	<%= @project.end_date.year %>-<%= @project.end_date.month %>-<%= @project.end_date.day %>
-</p>
-
-<% if current_user %>
-<h2>New Comment</h2>
-
-<%= form_for([@project, @comment]) do |f| %>
-<div class="field">
-	<%= f.text_area :post, size: "60x12" %>
-</div>
-<div class="actions">
-	<%= f.submit %>
-</div>
-
-<%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_project_path(@project) %>
-
-<% end %>
-
-
-<% end %>
-
-<h2>Comments</h2>
-
-<% @project.comments.each do |comment| %>
-<p>
-	<%= comment.post %>
-	<br>
-	<% if comment.user != nil %>
-	<em> by <%= comment.user.user_name %></em>
-	Added on: <%= comment.created_at %>
+	<% sum = 0 %>
+	<% @project.rewards.each do |reward| %>
+	<% y = reward.pledges.sum(:amount) %>
+	<% sum += y %>
 	<% end %>
-</p>
-<% end %>
+	<strong>Total Amount:</strong> $<%= sum %>
+	</p>
 
-<% if @comment.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+	<strong>Percent Raised: </strong> <%= ((sum / @project.amount.to_f) * 100 *10.0).round / 10.0 %>%
 
-	<ul>
-		<% @comment.errors.full_messages.each do |msg| %>
-		<li><%= msg %></li>
+	<p>
+		<strong>Start Date: </strong>
+		<%= @project.start_date.year %>-<%= @project.start_date.month %>-<%= @project.start_date.day %>
+	</p>
+
+	<p>
+		<strong>End Date: </strong>
+		<%= @project.end_date.year %>-<%= @project.end_date.month %>-<%= @project.end_date.day %>
+	</p>
+
+	<% if current_user %>
+	<h2>New Comment</h2>
+
+	<%= form_for([@project, @comment]) do |f| %>
+	<div class="field">
+		<%= f.text_area :post, size: "60x12" %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+	<%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to 'Edit', edit_project_path(@project) %>
+
+	<% end %>
+
+
+	<% end %>
+
+	<h2>Comments</h2>
+
+	<% @project.comments.each do |comment| %>
+	<p>
+		<%= comment.post %>
+		<br>
+		<% if comment.user != nil %>
+		<em> by <%= comment.user.user_name %></em>
+		Added on: <%= comment.created_at %>
 		<% end %>
-	</ul>
-</div>
-<% end %>
+	</p>
+	<% end %>
+
+	<% if @comment.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
 </div>
 
 <h2>Rewards</h2>
@@ -80,8 +87,8 @@
 	<%= reward.min_amount %><br/>
 
 	<%= form_for ([@project, @pledge]) do |f| %>
-		<%= f.hidden_field :reward_id, value: reward.id %>
-		<%= f.hidden_field :amount, value: reward.min_amount %>
+	<%= f.hidden_field :reward_id, value: reward.id %>
+	<%= f.hidden_field :amount, value: reward.min_amount %>
 	<div class="actions">
 		<%= f.submit "Pledge", class:"submit-button", data: {disable_with: "Submitting..."} %>
 	</div>

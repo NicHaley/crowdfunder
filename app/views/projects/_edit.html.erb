@@ -1,37 +1,41 @@
 <%= form_for(@project) do |f| %>
 
-  <div class="field">
-		<%= f.label :name %><br/>
-		<%= f.text_field :name %>
-	</div>
-	<div class="field">
-		<%= f.label :description %><br/>
-		<%= f.text_field :description %>
-	</div>
-	<div class="field">
-		<%= f.label :tagline %><br/>
-		<%= f.text_field :tagline %>
-	</div>
-	<div class="field">
-		<%= f.label :photo %><br/>
-		<%= f.text_field :photo %>
-	</div>
-		<div class="field">
-		<%= f.label :start_date %><br/>
-		<%= f.date_select :start_date %>
-	</div>
-		<div class="field">
-		<%= f.label :end_date %><br/>
-		<%= f.date_select :end_date %>
-	</div>
-	<p>Rewards</p>
-	<%= f.fields_for :rewards do |reward_fields| %>
-		<%= render 'reward_fields', f: reward_fields %>
-	<% end %>
+<div class="field">
+	<%= f.label :name %><br/>
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :description %><br/>
+	<%= f.text_field :description %>
+</div>
+<div class="field">
+	<%= f.label :tagline %><br/>
+	<%= f.text_field :tagline %>
+</div>
+<div class="field">
+	<%= f.label :photo %><br/>
+	<%= f.text_field :photo %>
+</div>
+<div class="field">
+	<%= f.label :goal %><br/>
+	<%= f.number_field :amount %>
+</div>
+<div class="field">
+	<%= f.label :start_date %><br/>
+	<%= f.date_select :start_date %>
+</div>
+<div class="field">
+	<%= f.label :end_date %><br/>
+	<%= f.date_select :end_date %>
+</div>
+<p>Rewards</p>
+<%= f.fields_for :rewards do |reward_fields| %>
+<%= render 'reward_fields', f: reward_fields %>
+<% end %>
 
-	<%= link_to_add_association 'add reward', f, :rewards %>
+<%= link_to_add_association 'add reward', f, :rewards %>
 
- 	<div class="action">
-		<%= f.submit "Submit"%>
-	</div>
+<div class="action">
+	<%= f.submit "Submit"%>
+</div>
 <% end %>
