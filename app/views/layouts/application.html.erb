@@ -20,7 +20,9 @@
         </li>
       </ul>
       <!-- Right Nav Section -->
+      <section class="top-bar-section">
       <ul class="right">
+        <li class="active"><%= link_to "Add Project", new_project_path, class: "add-product" %></li>
         <li>
         <% if current_user %> <!-- Do not need to define this with sorcery -->
         <%= link_to "Logout", :logout, method: :get %>

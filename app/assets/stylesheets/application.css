@@ -6,6 +6,9 @@ body {
 
 .top-bar {
 	background-color: white;
+	bottom-border-color: gray;
+	bottom-border-width: 1px;
+	height: 70px;
 }
 
 #main-display-container {
@@ -18,6 +21,8 @@ body {
 
 #main-display-text {
 	height: 600px;
+	padding: 260px;
+	text-align: center;
 }
 
 .text-main {
